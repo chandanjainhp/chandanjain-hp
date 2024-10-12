@@ -1,214 +1,396 @@
-.divcontainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color:  #4285f4;
+    color: #000000;
+}
+
+.header {
+    background-color:  #4285f4;
+    color: white;
+    box-shadow: 1px 1px 4px rgba(170, 208, 255, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+}
   
-  .intro-section {
+.header-container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+}
+
+.navbarli {
+    margin: 0 15px;
+}
+
+.navbarli a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.navbarli a:hover {
+    text-decoration: underline;
+}
+
+.divcontainer {
+    padding: 100px 20px 20px;
+}
+
+.grid-container {
+    display: grid;
+    /* grid-template-columns: repeat(12, 1fr); */
+    grid-template-columns: minmax(200px, 1fr) 2fr minmax(200px, 1fr);
+    gap: 20px;
   }
   
-  .intro-section img {
-    max-width: 45%;
-    height: auto;
-    transition: transform 0.3s ease;
+  .grid-item {
+    grid-column: span 12;
   }
   
-  .intro-section img:hover {
-    transform: scale(1.05);
+  /* Responsive breakpoints */
+  @media (min-width: 768px) {
+    .grid-item-md-6 {
+      grid-column: span 6;
+      
+    }
+    
+    .grid-item-md-4 {
+      grid-column: span 4;
+    }
+    
+    .grid-item-md-3 {
+      grid-column: span 3;
+    }
   }
   
-  .content-section {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  @media (min-width: 1024px) {
+    .grid-item-lg-4 {
+      grid-column: span 4;
+    }
+    
+    .grid-item-lg-3 {
+      grid-column: span 3;
+    }
+    
+    .grid-item-lg-2 {
+      grid-column: span 2;
+    }
+  }
+.bio, .blog-posts, .tips {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #4285F4;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #4285F4;
+    }
+
+    .navbarli {
+        width: 100%;
+    }
+
+    .menu-btn:checked ~ .navbar {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: inline-block;
+        padding: 15px;
+    }
+
+    .navicon {
+        background: #fff;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background 0.2s ease-out;
+        width: 18px;
+    }
+
+    .navicon:before,
+    .navicon:after {
+        background: #fff;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        transition: all 0.2s ease-out;
+    }
+
+    .navicon:before {
+        top: 5px;
+    }
+
+    .navicon:after {
+        top: -5px;
+    }
+
+    .menu-btn:checked ~ .menu-icon .navicon {
+        background: transparent;
+    }
+
+    .menu-btn:checked ~ .menu-icon .navicon:before {
+        transform: rotate(-45deg);
+    }
+
+    .menu-btn:checked ~ .menu-icon .navicon:after {
+        transform: rotate(45deg);
+    }
+}
+
+@media (min-width: 768px) {
+    .menu-icon {
+        display: none;
+    }
+
+    .navbar {
+        display: flex;
+    }
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
   }
   
-  h1 {
-    color: #333;
-    font-size: 24px;
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .hero-section {
+    background-image: url('cj.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh; /* This makes the section 50% of the viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white; /* Adjust text color to contrast with your image */
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* This adds a shadow to make text more readable */
+}
+
+.hero-section {
+    position: relative;
+    /* ... other styles ... */
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+}
+
+.hero-section h1 {
+    position: relative;
+    z-index: 1;
+
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section h1 span {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.hero-section h1 span:nth-child(1) { animation-delay: 0.8s; }
+.hero-section h1 span:nth-child(2) { animation-delay: 0.9s; }
+.hero-section h1 span:nth-child(3) { animation-delay: 0.10s; }
+.hero-section h1 span:nth-child(4) { animation-delay: 0.11s; }
+
+  
+  .case-study-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Space between columns */
+    padding: 20px;
+    align-items: center; /* Aligns content vertically */
+  }
+  
+  .text-section {
+    padding-right: 20px;
+  }
+  
+  .text-section h2 {
+    font-size: 5rem;
+    margin-bottom: 10px;
+  }
+  
+  .text-section p {
+    font-size: 1.1rem;
     margin-bottom: 20px;
   }
   
-  p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 15px;
+  .view-case-study {
+    padding: 10px 20px;
+    background-color: #cdd1b0; /* Button background color */
+    color: #000;
+    text-decoration: none;
+    border-radius: 20px;
   }
   
-  .highlight {
-    background-color: yellow;
-    transition: background-color 0.5s ease;
-  }
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-  @import "normalize.css";
-  
-  *,
-  *:after,
-  *:before {
-      box-sizing: border-box;
+  .image-section img {
+    width: 100%;
+    border-radius: 10px; /* Add a small border-radius for the image */
   }
   
-  html {
-      color-scheme: light only;
+  /* For smaller screens (mobile) */
+  @media (max-width: 768px) {
+    .case-study-grid {
+      grid-template-columns: 1fr; /* Make it one column */
+    }
+  
+    .text-section, .image-section {
+      padding: 0;
+    }
+  
+    .image-section img {
+      margin-top: 20px;
+    }
+  }
+  /* Styling the main grid container */
+.custom-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 2rem; /* Spacing between items */
+    padding: 2rem;
+    max-width: 1200px; /* Adjust based on your layout */
+    margin: 0 auto; /* Center the grid in its parent container */
   }
   
-  body {
-      display: flex;
-      place-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      touch-action: none;
-      font-family:  "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
+  /* Styling individual grid items */
+  .grid-item {
     padding: 1rem;
   }
   
-  body::before {
-      --line: color-mix(in lch, canvasText 25%, transparent);
-      --size: 60px;
-      content: "";
-      height: 100vh;
-      width: 100vw;
-      position: fixed;
-      background:
-          linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(--size) var(--size),
-          linear-gradient(var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(--size) var(--size);
-      mask: linear-gradient(-15deg, transparent 60%, white);
-      top: 0;
-      z-index: -1;
+  /* Styling text sections */
+  .text-section .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333; /* Adjust according to your color scheme */
   }
   
-  article {
-      width: 600px;
-      aspect-ratio: 2 / 1.1;
-      min-height: 330px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 4em;
-      max-width: calc(100% - 2rem);
-    background: hsl(0 0% 50%);
+  .text-section .section-description {
+    font-size: 1rem;
+    color: #666;
   }
   
-  article > img {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      translate: -50% 0;
-      height: 100%;
-      width: 660px;
-      object-fit: cover;
-      object-position: center 43%;
-      user-select: none;
-      pointer-events: none;
+  /* Styling image sections */
+  .image-section .section-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
   }
   
-  :root {
-    --x: 0;
-    --y: 0;
-  }
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .custom-container {
+      grid-template-columns: 1fr; /* Stack the items vertically on small screens */
+    }
   
-  article > img:first-of-type {
-      filter: saturate(1.5) brightness(0.9);
-      object-position: calc(-50% + (var(--x) * 30px)) calc(43% + (var(--y) * -20px));
+    .grid-item {
+      padding: 1rem 0; /* Adjust padding for mobile */
+    }
   }
-  
-  article > img:last-of-type {
-      object-position: calc(-50% + (var(--x) * 40px)) calc(43% + (var(--y) * -40px));
-  }
-  
-  article h3 {
-      position: absolute;
-      left: 50%;
-      top: 6%;
-      margin: 0;
-      font-size: 8rem;
-      translate: -50% 0;
-      text-transform: uppercase;
-      font-family: 'Bebas Neue', sans-serif;
-      color: white;
-      translate: calc(-50% + (var(--x) * -30px)) calc(var(--y) * -20px);
-  }
-  
-  .content {
-      min-height: 32%;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      color: white;
-      display: grid;
-      gap: 0.2rem;
-      place-items: center;
-      align-content: center;
-      padding-bottom: .5rem;
-  }
-  
-  .content svg {
-      width: 20px;
-  }
-  
-  .content p {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.2rem;
-  }
-  
-  .content p:first-of-type::after {
-      content: "";
-      position: absolute;
-      top: 1rem;
-      left: 50%;
-      width: 6ch;
-      background: white;
-      height: 1px;
-      translate: -50% 0;
-  }
-  
-  .content p:last-of-type {
-      opacity: 0.8;
-  }
-  
-  /* Blurring */
-  .blur {
-      position: absolute;
-      inset: 60% 0 -26% 0;
-      filter: blur(20px);
-      overflow: hidden;
-  }
-  
-  .blur img {
-      object-position: calc(-50% + (var(--x) * 40px)) calc(47.5% + (var(--y) * -40px));
-      object-fit: cover;
-      left: 50%;
-      translate: -50% 0;
-      height: 330px;
-      position: absolute;
-      bottom: 25%;
-      width: 660px;
-      mask: radial-gradient(50% 100% at 50% 90%, white 50%, transparent);
-    filter: saturate(1.5) brightness(0.8);
-  }
-  
-  .bear-link {
-      color: canvasText;
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      width: 48px;
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-      opacity: 0.8;
-  }
-  
-  :where(.x-link, .bear-link):is(:hover, :focus-visible) {
-      opacity: 1;
-  }
-  .bear-link svg {
-      width: 75%;
-  }
+  .skill {
+    margin: 15px 0;
+}
+
+.skill span {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.skill-bar {
+    height: 20px;
+    background-color: #4caf50;
+    border-radius: 4px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}

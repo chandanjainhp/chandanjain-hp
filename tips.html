@@ -3,50 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Tips - Chandan Jain H P 🐧🌐</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-
-    <style>
-        .bio {
-            padding: 50px ;
-            
-        }
-    </style>
-
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="header">
         <div class="header-container">
-            <a class="logo" href="home.html">
+            <a class="logo" href="index.html">
                 <img src="logo.jpg" alt="Company Logo">
             </a>
-            <input class="menu-btn" type="checkbox" id="menu-btn">
+            <!-- <input class="menu-btn" type="checkbox" id="menu-btn"> -->
             <label class="menu-icon" for="menu-btn">
                 <span class="navicon"></span>
             </label>
             <ul class="navbar">
-                <li class="navbarli"><a href="home.html">HOME</a></li>
+                <li class="navbarli"><a href="index.html">HOME</a></li>
                 <li class="navbarli"><a href="about.html">ABOUT</a></li>
                 <li class="navbarli"><a href="blog.html">BLOG</a></li>
                 <li class="navbarli"><a href="tips.html">TIPS</a></li>
             </ul>
         </div>
     </header>
+    <style>
+           :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tip-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .tip-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        .tip-content {
+            padding: 1rem;
+            display: none;
+        }
+
+        .tip-content.active {
+            display: block;
+        }
+
+        .tip-number {
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        #progress-bar {
+            background-color: var(--primary-color);
+            height: 5px;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        </style>
     <main class="divcontainer">
-        <h1>Chandan Jain H P 🐧🌐</h1>
-        <section class="bio">
-           <p>I am currently pursuing a Master of Computer Applications (MCA) at RVITM, where I am deeply engaged in expanding my knowledge and skills in the world of technology. My role as the Media and Creative Lead at the CodeXplorers Club RVITM allows me to merge my technical expertise with my creative interests, contributing to innovative projects and events within the club.</p>
-           <br>
-           <p>I hold a Bachelor of Science degree, which laid the foundation for my passion for computing and media. My academic background has equipped me with a solid understanding of both theoretical concepts and practical applications in the tech field.</p>
-           <br>
-            <p>As a fervent Linux enthusiast, I am particularly interested in open-source technologies and the power of community-driven development. I find joy in exploring Linux distributions, customizing environments, and contributing to various open-source projects.</p>
-            <br>
-            <p>In my spare time, I enjoy delving into new technologies, experimenting with creative media projects, and staying updated with the latest trends in the tech industry. My goal is to leverage my skills and enthusiasm to make meaningful contributions to the tech community and beyond.</p>
-            <br>
-            <p>Based in Bengaluru, Karnataka, I am excited about the opportunities and innovations that this vibrant tech hub offers. I am always eager to connect with like-minded individuals and explore new collaborations that push the boundaries of technology and creativity.</p>
-        
+        <h1>Tech Tips 💡</h1>
+        <section class="tips">
+            <article>
+                <main class="divcontainer">
+                    <div class="dive-container">
+                      <div id="progress-bar"></div>
+                      <main>
+                        <div id="tips-list"></div>
+                    </main>
+                      </div>
+                        
+                </main>
+            
+            </article>
         </section>
     </main>
 
@@ -74,7 +128,64 @@
         </div>
         <hr>
     </footer>
+    <script>
+      const tips = [
+          {
+              title: "Embrace the Power of Rubber Duck Debugging",
+              content: "Keep a rubber duck on your desk and explain your code to it when you're stuck. The act of verbalization often leads to problem-solving insights."
+          },
+          {
+              title: "Implement a Personal Kanban Board",
+              content: "Use a physical or digital Kanban board to visualize your workflow. Limit work in progress (WIP) to maintain focus. Regularly review and adjust your process."
+          },
+          {
+              title: "Practice Mindful Coding",
+              content: "Start each coding session with a brief meditation. Focus on the present moment and the task at hand. Reduce mental clutter and increase concentration."
+          },
+          {
+              title: "Adopt the 'Two-Minute Rule'",
+              content: "If a task takes less than two minutes, do it immediately. This prevents small tasks from piling up and becoming overwhelming, and maintains a sense of progress throughout the day."
+          },
+          {
+              title: "Utilize the Eisenhower Matrix for Task Prioritization",
+              content: "Categorize tasks based on urgency and importance. Focus on important tasks, whether urgent or not. Delegate or eliminate unimportant tasks."
+          }
+      ];
 
-   
+      function createTipElement(tip, index) {
+          const tipElement = document.createElement('div');
+          tipElement.className = 'tip-container';
+          tipElement.innerHTML = `
+              <div class="tip-header">
+                  <span class="tip-number">${index + 1}.</span>
+                  ${tip.title}
+              </div>
+              <div class="tip-content">
+                  <p>${tip.content}</p>
+              </div>
+          `;
+          return tipElement;
+      }
+
+      function toggleTip(event) {
+          const content = event.currentTarget.nextElementSibling;
+          content.classList.toggle('active');
+          updateProgressBar();
+      }
+
+      function updateProgressBar() {
+          const totalTips = tips.length;
+          const openTips = document.querySelectorAll('.tip-content.active').length;
+          const progress = (openTips / totalTips) * 100;
+          document.getElementById('progress-bar').style.width = `${progress}%`;
+      }
+
+      const tipsList = document.getElementById('tips-list');
+      tips.forEach((tip, index) => {
+          const tipElement = createTipElement(tip, index);
+          tipsList.appendChild(tipElement);
+          tipElement.querySelector('.tip-header').addEventListener('click', toggleTip);
+      });
+</script>
 </body>
 </html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Chandan Jain H P 🐧🌐</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+     .containerdev {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+ 
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px; /* Add more space between sections */
+}
+.containergride {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 4% 2%;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box {
+  flex: 1;
+  margin: 1%;
+  overflow: hidden;
+  transition: 0.5s;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  line-height: 0;
+}
+
+.box > img {
+  width: 200%;
+  height: calc(100% - 10vh);
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.box > span {
+  font-size: 3.8vh;
+  display: block;
+  text-align: center;
+  height: 10vh;
+  line-height: 2.6;
+}
+
+.box:hover {
+  flex: 1 1 50%;
+}
+
+.box:hover > img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.mySkills {
+    text-align: center;
+}
+
+.skill {
+    margin-bottom: 20px; /* Add space between skill bars */
+}
+
+.skill-bar {
+    display: inline-block;
+    height: 20px;
+    background-color: #3498db;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.skill span {
+    display: inline-block;
+    width: 80px; /* Adjust the width to fit skill names */
+}
+
+.skill .skill-bar {
+    width: calc(100% - 90px); /* Make sure bars fill the remaining space */
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: center; /* Center the pricing plans horizontally */
+    margin: 0 auto; /* Center the table in the page */
+    gap: 20px; /* Add space between the pricing plans */
+}
+
+.pricing-plan {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    color: #333;
+}
+
+
+
+        .pricing-plan.basic {
+            background-color: #ccc;
+        }
+
+        .pricing-plan.pro {
+            background-color: #000;
+            color: white;
+        }
+
+        .pricing-plan h2 {
+            margin-bottom: 20px;
+        }
+
+        .pricing-plan ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .pricing-plan ul li {
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .signup-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signup-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .skill-bar {
+            display: inline-block;
+            height: 20px;
+            background-color: #3498db;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .about-section {
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        background-color: #000; /* Assuming the background is dark */
+        padding: 40px 20px; /* Add some padding for spacing */
+        text-align: left; /* Keep the text aligned to the left */
+    }
+    
+    .about-section abouth1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px; /* Add space between heading and text */
+        border-bottom: 2px solid #ffffff; /* Add an underline effect */
+        display: inline-block; /* Keeps underline from stretching across full width */
+        padding-bottom: 10px; /* Space between text and underline */
+    }
+    
+    .about-section pabout {
+        font-size: 18px;
+        line-height: 1.6; /* Improve readability with better line spacing */
+        max-width: 800px; /* Limit the width for better readability */
+        margin: 20px 0;
+        color: #dcdcdc; /* Lighten the text color for better contrast */
+    }
+    
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a class="logo" href="index.html">
+                <img src="logo.jpg" alt="Company Logo">
+            </a>
+            <label class="menu-icon" for="menu-btn">
+                <span class="navicon"></span>
+            </label>
+            <ul class="navbar">
+                <li class="navbarli"><a href="index.html">HOME</a></li>
+                <li class="navbarli"><a href="about.html">ABOUT</a></li>
+                <li class="navbarli"><a href="blog.html">BLOG</a></li>
+                <li class="navbarli"><a href="tips.html">TIPS</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <h1><span>Welcome</span> <span>to</span> <span>My</span> <span>Portfolio</span></h1>
+    </div>
+    <div class="about-section">
+        <h1 class="abouth1">chandan jain hp</h1>
+        <p class="pabout">
+            MCA Student at RVITM | Media and Creative at CodeXplorers Club RVITM | Bachelor of Science Graduate 🎓 | Enthusiast of Linux 🐧
+        </p>
+    </div>
+    
+
+  <div class=".containergride ">
+    <div class="container">
+        <div class="box">
+          <img src="gird1.gif" name="gif">
+          <span>zoom image</span>
+        </div>
+        <div class="box">
+          <img src="gird2.gif">
+          <span> WebDesign</span>
+        </div>
+        <div class="box">
+          <img src="gird3.gif">
+          <span>Photography</span>
+        </div>
+        <div class="box">
+          <img src="gird4.gif">
+          <span>Photography</span>
+        </div>
+      </div>
+    </div>
+    <h1 class="mySkills">My Skills</h1>
+    <div class="containerdev">
+        <div class="container">
+           
+            <div class="skill">
+                <span>Photography</span>
+                <div class="skill-bar" style="width: 95%;"></div>
+                <span>95%</span>
+            </div>
+            <div class="skill">
+                <span>WebDesign</span>
+                <div class="skill-bar" style="width: 85%;"></div>
+                <span>85%</span>
+            </div>
+            <div class="skill">
+                <span>Photoshop</span>
+                <div class="skill-bar" style="width: 80%;"></div>
+                <span>80%</span>
+            </div>
+        </div>
+
+        <div class="pricing-table">
+            <div class="pricing-plan basic">
+                <h2>Basic</h2>
+                <ul>
+                    <li>Web Design</li>
+                    <li>Photography</li>
+                    <li>5GB Storage</li>
+                    <li>Mail Support</li>
+                </ul>
+                <div class="price">$10<br><span>per month</span></div>
+                <button class="signup-btn" onclick="signUp('Basic')">Sign Up</button>
+            </div>
+
+            <div class="pricing-plan pro">
+                <h2>Pro</h2>
+                <ul>
+                    <li>Web Design</li>
+                    <li>Photography</li>
+                    <li>50GB Storage</li>
+                    <li>Endless Support</li>
+                </ul>
+                <div class="price">$25<br><span>per month</span></div>
+                <button class="signup-btn" onclick="signUp('Pro')">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <footer class="footer">
+        <hr>
+        <div class="footer-container">
+            <div class="services">
+                <h4>Services</h4>
+                <p><a href="#">App development</a></p>
+                <p><a href="#">Web development</a></p>
+                <p><a href="#">Web designing</a></p>
+            </div>
+
+            <div class="social-media">
+                <h4>Social</h4>
+                <p><a href="https://www.linkedin.com/in/chandanjainhp" target="_blank">LinkedIn</a></p>
+                <p><a href="https://twitter.com/chandanjainhp" target="_blank">Twitter</a></p>
+                <p><a href="https://github.com/chandanjainhp" target="_blank">GitHub</a></p>
+                <p><a href="https://www.facebook.com/chandanjaincj" target="_blank">Facebook</a></p>
+                <p><a href="https://www.instagram.com/chandanjainhp" target="_blank">Instagram</a></p>
+            </div>
+
+            <div class="details">
+                <h4>Email</h4>
+                <p><a href="mailto:chandanjaincj93@gmail.com">chandanjaincj93@gmail.com</a></p>
+            </div>
+        </div>
+        <hr>
+    </footer>
+
+    <script>
+        function signUp(plan) {
+            alert(`You have chosen the ${plan} plan.`);
+        }
+    </script>
+</body>
+</html>
